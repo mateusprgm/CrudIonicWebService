@@ -1,0 +1,55 @@
+<!-- Generated template for the CrudServiceComponent component -->
+<!-- Listagem dos items do serviço -->
+<ion-content padding ><ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Puxe para atualizar"
+      refreshingSpinner="crescent"
+      refreshingText="Atualizando...">
+    </ion-refresher-content>
+</ion-refresher>
+
+<ion-input placeholder="Nome Prospecto"  [(ngModel)]="oportunidadeCadastrar.nomeProspecto"></ion-input>
+<ion-input placeholder="Descricao"  [(ngModel)]="oportunidadeCadastrar.descricao"></ion-input>
+<ion-input placeholder="Valor"  [(ngModel)]="oportunidadeCadastrar.valor"></ion-input>
+
+<button ion-button color="default" (click)="cadastrar(oportunidadeCadastrar);">Cadastrar</button>
+
+<ion-input placeholder="Nome Prospecto"  [(ngModel)]="oportunidadeAtualizar.nomeProspecto"></ion-input>
+<ion-input placeholder="Descricao"  [(ngModel)]="oportunidadeAtualizar.descricao"></ion-input>
+<ion-input placeholder="Valor"  [(ngModel)]="oportunidadeAtualizar.valor"></ion-input>
+
+<button ion-button color="default" (click)="atualizar(oportunidadeAtualizar);">Atualizar Registro</button>
+
+<ion-list>
+    <ion-item>
+        <ion-label><b>NomeProspecto</b></ion-label>
+        <ion-label><b>Descricao</b></ion-label>
+        <ion-label><b>Valor</b></ion-label>
+        <ion-label><b>Excluir</b></ion-label>
+        <ion-label><b>Alterar</b></ion-label>
+    </ion-item>
+    
+  <ion-item *ngFor="let oportunidade of oportunidades" >
+      <ion-label> {{oportunidade.nomeProspecto}}</ion-label>
+      <ion-label> {{oportunidade.descricao}}</ion-label>
+      <ion-label> {{oportunidade.valor}}</ion-label>
+      
+      <ion-label>
+          <ion-fab top middle>
+              <button ion-fab color="default" (click)="preparar(oportunidade);">Alterar</button>
+          </ion-fab>
+      </ion-label>
+      <ion-label>
+          <ion-fab top middle>
+              <button ion-fab color="danger" (click)="deletar(oportunidade);">Excluir</button>
+          </ion-fab>
+      </ion-label>
+  </ion-item>
+</ion-list>
+
+
+
+
+
+</ion-content>
